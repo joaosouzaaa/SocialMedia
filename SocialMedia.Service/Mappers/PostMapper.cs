@@ -1,5 +1,5 @@
 ﻿using SocialMedia.Domain.Entities;
-using SocialMedia.Service.DataTransferObjects.Requests;
+using SocialMedia.Service.DataTransferObjects.Requests.Post;
 using SocialMedia.Service.Interfaces.Mappers;
 
 namespace SocialMedia.Service.Mappers

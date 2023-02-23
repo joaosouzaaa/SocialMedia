@@ -9,8 +9,11 @@ namespace SocialMedia.DependencyInjection
     {
         public static void AddValidatorDependencyInjection(this IServiceCollection services)
         {
+            services.AddScoped<IValidator<Address>, AddressValidator>();
+            services.AddScoped<IValidator<Like>, LikeValidator>();
             services.AddScoped<IValidator<Post>, PostValidator>();
             services.AddScoped<IValidator<Tag>, TagValidator>();
+            services.AddScoped<IValidator<User>, UserValidator>();
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace SocialMedia.Service.DataTransferObjects.Requests
+﻿namespace SocialMedia.Service.DataTransferObjects.Requests.Post
 {
     public sealed class PostSaveRequest
     {

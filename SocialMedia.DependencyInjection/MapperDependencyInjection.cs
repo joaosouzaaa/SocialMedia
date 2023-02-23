@@ -8,7 +8,10 @@ namespace SocialMedia.DependencyInjection
     {
         public static void AddMapperDependencyInjection(this IServiceCollection services)
         {
+            services.AddScoped<IAddressMapper, AddressMapper>();
+            services.AddScoped<ILikeMapper, LikeMapper>();
             services.AddScoped<IPostMapper, PostMapper>();
+            services.AddScoped<IUserMapper, UserMapper>();  
         }
     }
 }

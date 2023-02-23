@@ -50,5 +50,38 @@ namespace SocialMedia.Infra.Repositories
 
             return false;
         }
+
+        public async Task<bool> ExistsAsync(int id)
+        {
+            var userExistsSqlString = $@"SELECT COUNT(*)
+                FROM Users
+                WHERE Id = {id}";
+
+            var userExistsResult = await _sqlConnection.QueryFirstOrDefaultAsync<int>(userExistsSqlString);
+
+            return userExistsResult >= 1;
+        }
+
+        public async Task<bool> UserNameExistsAsync(string userName)
+        {
+            var userNameExistsSqlString = $@"SELECT COUNT(*)
+                FROM Users
+                WHERE UserName = '{userName}'";
+
+            var userNameExistsResult = await _sqlConnection.QueryFirstOrDefaultAsync<int>(userNameExistsSqlString);
+
+            return userNameExistsResult >= 1;
+        }
+
+        public async Task<bool> EmailExistsAsync(string email)
+        {
+            var emailExistsSqlString = $@"SELECT COUNT(*)
+                FROM Users
+                WHERE Email = '{email}'";
+
+            var emailExistsResult = await _sqlConnection.QueryFirstOrDefaultAsync<int>(emailExistsSqlString);
+
+            return emailExistsResult >= 1;
+        }
     }
 }

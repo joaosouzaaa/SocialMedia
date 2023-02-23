@@ -8,8 +8,10 @@ namespace SocialMedia.DependencyInjection
     {
         public static void AddServicesDependencyInjection(this IServiceCollection services)
         {
+            services.AddScoped<ILikeService, LikeService>();
             services.AddScoped<IPostService, PostService>();
             services.AddScoped<ITagService, TagService>();
+            services.AddScoped<IUserService, UserService>();    
         }
     }
 }

@@ -1,7 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using SocialMedia.Business.Interfaces.Repositories;
-using SocialMedia.Domain.Entities;
+﻿using Microsoft.AspNetCore.Mvc;
+using SocialMedia.Service.DataTransferObjects.Requests.User;
+using SocialMedia.Service.Interfaces.Services;
 
 namespace SocialMedia.Api.Controllers
 {
@@ -9,15 +8,15 @@ namespace SocialMedia.Api.Controllers
     [ApiController]
     public sealed class UserController : ControllerBase
     {
-        private readonly IUserRepository _userRepository;
+        private readonly IUserService _userService;
 
-        public UserController(IUserRepository userRepository)
+        public UserController(IUserService userService)
         {
-            _userRepository = userRepository;
+            _userService = userService;
         }
 
         [HttpPost("insert")]
-        public async Task<bool> InsertAsync([FromBody] User user) =>
-            await _userRepository.InsertAsync(user);
+        public async Task<bool> InsertAsync([FromBody] UserSaveRequest userSaveRequest) =>
+            await _userService.InsertAsync(userSaveRequest);
     }
 }
